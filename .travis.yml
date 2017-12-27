@@ -1,14 +1,6 @@
 ---
 language: java
-env:
-- CLOUDSDK_CORE_DISABLE_PROMPTS=1
-cache:
-  directories:
-  - "$HOME/google-cloud-sdk/"
 script:
-- if [ ! -d ${HOME}/google-cloud-sdk ]; then curl https://sdk.cloud.google.com | bash;
-  fi
-- gcloud auth activate-service-account --key-file gcloud-service-key.json
 - ./gradlew run
 before_install:
 - openssl aes-256-cbc -K $encrypted_fb8312436011_key -iv $encrypted_fb8312436011_iv
