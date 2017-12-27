@@ -1,5 +1,7 @@
 ---
 language: java
+env:
+- GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcloud-service-key.json
 script:
 - ./gradlew run
 before_install:
