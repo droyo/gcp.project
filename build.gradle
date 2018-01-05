@@ -5,12 +5,20 @@ apply plugin: 'java'
 sourceCompatibility = 1.7
 
 repositories {
+    maven {
+        url "gcs://gcp-project-demo-14403187/maven"
+    }
     mavenCentral()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile 'com.google.api-client:google-api-client:1.23.0'
+}
+
+task getDeps(type: Copy) {
+    from sourceSets.main.runtimeClasspath
+    into 'deps/'
 }
 
 task run(type:JavaExec) {
